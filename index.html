@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -325,18 +325,22 @@
      <script>
          $(document).ready(function() {
             $('#mycarousel').carousel({interval:2000})
-            $("#carouselButton").click(function(){
-                if ($("#carouselButton").children("span").hasClass('fa-pause')) {
-                    $("#mycarousel").carousel('pause');
-                    $("#carouselButton").children("span").removeClass('fa-pause');
-                    $("#carouselButton").children("span").addClass('fa-play');
+            $('#carousel-pause').click(function() {
+
+                if ($('carouselButton').children('span').hasClass('fa-pause')){
+                    $('#mycarousel').carousel('pause')
+                    $('#myCarousel').children('span').removeClass('fa-pause')
+                    $('#myCarousel').children('span').addClass('fa-play')
                 }
-                else if ($("#carouselButton").children("span").hasClass('fa-play')){
-                    $("#mycarousel").carousel('cycle');
-                    $("#carouselButton").children("span").removeClass('fa-play');
-                    $("#carouselButton").children("span").addClass('fa-pause');                    
+
+                else if ($('carouselButton').children('span').hasClass('fa-play')){
+                    $('#mycarousel').carousel('cycle')
+                    $('#myCarousel').children('span').removeClass('fa-play')
+                    $('#myCarousel').children('span').addClass('fa-play')
                 }
-            });
+                
+                
+            })
          })
      </script>
 </body>
