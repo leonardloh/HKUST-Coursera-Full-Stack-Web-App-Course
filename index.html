@@ -31,7 +31,7 @@
                 </ul>
 
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
+                    <a id="loginButton">
                         <span class="fa fa-sign-in"></span> Login 
                     </a>
                 </span>
@@ -46,7 +46,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Login </h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal" id="button-close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="col-12 col-sm-3 align-self-center">
                 <!-- Trigger the modal with a button -->
-                <button type="button" class="btn btn-warning btn-lg btn-block" data-toggle="modal" data-target="#reserveTableModal">Reserve Table</button>
+                <button type="button" class="btn btn-warning btn-lg btn-block" id="reserveTableButton">Reserve Table</button>
                 </div> 
             </div>
         </div>
@@ -101,7 +101,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Reserve a Table </h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal" id="button-close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="container">
@@ -325,21 +325,24 @@
      <script>
          $(document).ready(function() {
             $('#mycarousel').carousel({interval:2000})
-            $('#carousel-pause').click(function() {
-
-                if ($('carouselButton').children('span').hasClass('fa-pause')){
-                    $('#mycarousel').carousel('pause')
-                    $('#myCarousel').children('span').removeClass('fa-pause')
-                    $('#myCarousel').children('span').addClass('fa-play')
+            $("#carouselButton").click(function(){
+                if ($("#carouselButton").children("span").hasClass('fa-pause')) {
+                    $("#mycarousel").carousel('pause');
+                    $("#carouselButton").children("span").removeClass('fa-pause');
+                    $("#carouselButton").children("span").addClass('fa-play');
                 }
-
-                else if ($('carouselButton').children('span').hasClass('fa-play')){
-                    $('#mycarousel').carousel('cycle')
-                    $('#myCarousel').children('span').removeClass('fa-play')
-                    $('#myCarousel').children('span').addClass('fa-play')
+                else if ($("#carouselButton").children("span").hasClass('fa-play')){
+                    $("#mycarousel").carousel('cycle');
+                    $("#carouselButton").children("span").removeClass('fa-play');
+                    $("#carouselButton").children("span").addClass('fa-pause');                    
                 }
-                
-                
+            });
+            $('#loginButton').click(function(){
+                $('#loginModal').modal();
+            })
+
+            $('#reserveTableButton').click(function(){
+                $('#reserveTableModal').modal();
             })
          })
      </script>
